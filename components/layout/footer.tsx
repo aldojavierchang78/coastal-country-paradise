@@ -25,10 +25,10 @@ export function Footer() {
           </p>
           <p>
             <a
-              href="mailto:coastalandcountryparadise@gmail.com"
+              href="mailto:aldojavier.chang@gmail.com"
               className="transition-colors duration-500 hover:text-deep-black"
             >
-              coastalandcountryparadise@gmail.com
+              aldojavier.chang@gmail.com
             </a>
           </p>
         </div>

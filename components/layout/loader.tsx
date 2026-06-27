@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
+import { Logo } from "@/components/ui/logo";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { luxuryEase } from "@/lib/motion";
-import { images } from "@/lib/images";
 
 type LuxuryLoaderProps = {
   onComplete: () => void;
@@ -32,16 +31,11 @@ export function LuxuryLoader({ onComplete }: LuxuryLoaderProps) {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease: luxuryEase }}
-            className="relative h-28 w-64 md:h-36 md:w-80"
           >
-            <Image
-              src={images.logo}
-              alt="Coastal & Country Paradise"
-              fill
+            <Logo
               priority
-              sizes="320px"
-              quality={100}
-              className="object-contain"
+              sizes="100px"
+              className="h-auto w-[100px] bg-transparent object-contain"
             />
           </motion.div>
         </motion.div>

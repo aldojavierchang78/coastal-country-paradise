@@ -1,11 +1,10 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
+import { Logo } from "@/components/ui/logo";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { luxuryEase } from "@/lib/motion";
-import { images } from "@/lib/images";
 
 const navLinks = [
   { label: "Estate", href: "#estate" },
@@ -49,23 +48,8 @@ export function Navigation() {
         className="pointer-events-none fixed inset-x-0 top-0 z-50 px-6 pt-7 md:px-14 md:pt-9 lg:px-20"
       >
         <nav className="pointer-events-auto mx-auto flex max-w-[92rem] items-center justify-between">
-          <Link
-            href="#"
-            className="relative h-[4.5rem] w-[13rem] shrink-0 md:h-[5.5rem] md:w-[16rem] lg:h-[6.5rem] lg:w-[19rem]"
-          >
-            <Image
-              src={images.logo}
-              alt="Coastal & Country Paradise"
-              fill
-              sizes="304px"
-              quality={100}
-              className={`object-contain object-left transition-all duration-700 ${
-                lightNav
-                  ? "drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]"
-                  : "brightness-0"
-              }`}
-              priority
-            />
+          <Link href="#" className="inline-flex shrink-0 bg-transparent">
+            <Logo priority />
           </Link>
 
           <ul className="hidden items-center gap-14 lg:flex xl:gap-20">
