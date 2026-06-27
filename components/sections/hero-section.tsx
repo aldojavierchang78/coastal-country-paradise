@@ -1,25 +1,82 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { fadeUp, luxuryEase } from "@/lib/motion";
 import { images } from "@/lib/images";
 
+const KEN_BURNS_DURATION = 25;
+
 export function HeroSection() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section className="relative h-[100dvh] min-h-[640px] overflow-hidden">
-      <Image
-        src={images.hero}
-        alt="Luxury mansion estate at golden hour"
-        fill
-        priority
-        quality={100}
-        sizes="100vw"
-        className="object-cover object-center contrast-[1.02] saturate-[1.03]"
+      {/* Ken Burns background */}
+      <div className="absolute inset-0" aria-hidden>
+        <motion.div
+          className="absolute inset-0 will-change-transform"
+          initial={false}
+          animate={
+            prefersReducedMotion
+              ? { scale: 1.02, x: "0%" }
+              : { scale: [1.02, 1.1], x: ["-1.25%", "1.25%"] }
+          }
+          transition={
+            prefersReducedMotion
+              ? { duration: 0 }
+              : {
+                  duration: KEN_BURNS_DURATION,
+                  repeat: Infinity,
+                  repeatType: "mirror",
+                  ease: "linear",
+                }
+          }
+        >
+          <Image
+            src={images.hero}
+            alt="Luxury mansion estate at golden hour"
+            fill
+            priority
+            quality={100}
+            sizes="100vw"
+            className="object-cover object-center contrast-[1.02] saturate-[1.03]"
+          />
+        </motion.div>
+      </div>
+
+      {/* Left gradient — text readability */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent"
+        aria-hidden
       />
 
-      <div className="absolute inset-0 bg-black/22" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/10" />
+      {/* Bottom depth */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"
+        aria-hidden
+      />
+
+      {/* Edge vignette */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_50%,rgba(0,0,0,0.28)_100%)]"
+        aria-hidden
+      />
+
+      {/* Soft warm light sweep */}
+      {!prefersReducedMotion && (
+        <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+          <motion.div
+            className="absolute -inset-y-1/4 h-[150%] w-[45%] bg-gradient-to-r from-transparent via-[rgba(201,169,98,0.07)] to-transparent"
+            animate={{ x: ["-60%", "160%"] }}
+            transition={{
+              duration: 28,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        </div>
+      )}
 
       <div className="relative z-10 flex h-full flex-col justify-end px-7 pb-20 pt-36 sm:px-10 sm:pb-24 md:px-16 md:pb-28 lg:px-24 lg:pb-32">
         <div className="mx-auto w-full max-w-[92rem]">
@@ -92,8 +149,12 @@ export function HeroSection() {
           Scroll
         </span>
         <motion.span
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          animate={prefersReducedMotion ? { y: 0 } : { y: [0, 8, 0] }}
+          transition={
+            prefersReducedMotion
+              ? { duration: 0 }
+              : { duration: 3, repeat: Infinity, ease: "easeInOut" }
+          }
           className="block h-12 w-px bg-gradient-to-b from-white/25 to-transparent"
         />
       </motion.a>
