@@ -40,7 +40,7 @@ export function LuxuryLoader({ onComplete }: LuxuryLoaderProps) {
               fill
               priority
               sizes="320px"
-              quality={95}
+              quality={100}
               className="object-contain"
             />
           </motion.div>

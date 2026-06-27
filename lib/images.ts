@@ -15,48 +15,38 @@ export const images = {
 export type GalleryItem = {
   src: string;
   alt: string;
-  aspect: "tall" | "wide" | "square";
+  layout: "hero" | "tall-left" | "wide-right" | "portrait" | "landscape";
 };
 
 export const galleryItems: GalleryItem[] = [
   {
     src: "/images/gallery/mansion-aerial.jpg",
-    alt: "Aerial view of the private estate",
-    aspect: "wide",
+    alt: "The estate from above",
+    layout: "hero",
   },
   {
     src: "/images/gallery/fleet-driveway.jpg",
-    alt: "Luxury fleet at the mansion driveway",
-    aspect: "tall",
+    alt: "Fleet at the driveway",
+    layout: "tall-left",
   },
   {
     src: "/images/gallery/corvette-front.jpg",
     alt: "Corvette at golden hour",
-    aspect: "square",
-  },
-  {
-    src: "/images/boat/boat-experience.png",
-    alt: "Private yacht experience",
-    aspect: "tall",
-  },
-  {
-    src: "/images/gallery/gwagon-front.jpg",
-    alt: "Mercedes G-Wagon",
-    aspect: "wide",
+    layout: "wide-right",
   },
   {
     src: "/images/horses/horses-experience.png",
-    alt: "Equestrian portrait session",
-    aspect: "square",
+    alt: "Equestrian portrait",
+    layout: "portrait",
   },
   {
     src: "/images/dresses/dresses-experience.png",
-    alt: "Luxury couture collection",
-    aspect: "tall",
+    alt: "Couture collection",
+    layout: "landscape",
   },
   {
     src: "/images/birds/birds-experience.png",
-    alt: "Exotic bird encounter",
-    aspect: "square",
+    alt: "Exotic birds",
+    layout: "portrait",
   },
 ];

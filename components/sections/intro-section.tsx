@@ -2,25 +2,35 @@
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
+const phrases = [
+  "Stay Extraordinary.",
+  "Drive Something Rare.",
+  "Sail Into Stillness.",
+  "Celebrate Without Ordinary.",
+];
+
 export function IntroSection() {
   return (
-    <section id="intro" className="bg-ivory py-32 md:py-48 lg:py-64">
-      <div className="mx-auto max-w-[90rem] px-8 md:px-16 lg:px-24">
-        <ScrollReveal>
-          <h2 className="max-w-5xl font-serif text-[clamp(2.75rem,7vw,6rem)] font-light leading-[1.02] tracking-tight text-deep-black">
-            Stay. Drive. Sail. Celebrate.
-          </h2>
+    <section id="intro" className="bg-ivory py-36 md:py-52 lg:py-72">
+      <div className="mx-auto max-w-[92rem] px-7 sm:px-10 md:px-16 lg:px-24">
+        <div className="space-y-6 md:space-y-8 lg:space-y-10">
+          {phrases.map((phrase, i) => (
+            <ScrollReveal key={phrase} delay={i * 0.08}>
+              <p className="font-serif text-[clamp(2rem,5.5vw,4.25rem)] font-light leading-[1.08] tracking-tight text-deep-black">
+                {phrase}
+              </p>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        <ScrollReveal delay={0.4} className="mt-20 md:mt-28">
+          <div className="h-px w-12 bg-champagne/70" />
         </ScrollReveal>
 
-        <ScrollReveal delay={0.15} className="mt-16 md:mt-20">
-          <div className="h-px w-16 bg-champagne" />
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.2} className="mt-16 md:mt-20">
-          <p className="max-w-2xl text-base font-light leading-[2] text-luxury-muted md:text-lg">
-            A private destination where coastal elegance meets country charm —
-            created for luxury stays, photo sessions, private events and
-            once-in-a-lifetime experiences.
+        <ScrollReveal delay={0.45} className="mt-16 md:mt-20">
+          <p className="max-w-lg text-[15px] font-light leading-[2.1] text-luxury-muted md:text-base">
+            A private estate where coastal elegance meets country calm —
+            reserved for those who arrive by intention, not invitation.
           </p>
         </ScrollReveal>
       </div>

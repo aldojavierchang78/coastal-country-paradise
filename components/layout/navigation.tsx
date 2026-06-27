@@ -10,6 +10,7 @@ import { images } from "@/lib/images";
 const navLinks = [
   { label: "Estate", href: "#estate" },
   { label: "Fleet", href: "#fleet" },
+  { label: "Water", href: "#water" },
   { label: "Lifestyle", href: "#lifestyle" },
   { label: "Gallery", href: "#gallery" },
 ];
@@ -22,8 +23,8 @@ export function Navigation() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setScrolled(y > 40);
-      setOnHero(y < window.innerHeight * 0.8);
+      setScrolled(y > 48);
+      setOnHero(y < window.innerHeight * 0.75);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -42,40 +43,40 @@ export function Navigation() {
   return (
     <>
       <motion.header
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.2, delay: 2.4, ease: luxuryEase }}
-        className="pointer-events-none fixed inset-x-0 top-0 z-50 px-6 pt-8 md:px-12 md:pt-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.4, delay: 2.2, ease: luxuryEase }}
+        className="pointer-events-none fixed inset-x-0 top-0 z-50 px-6 pt-7 md:px-14 md:pt-9 lg:px-20"
       >
-        <nav className="pointer-events-auto mx-auto flex max-w-[90rem] items-center justify-between">
+        <nav className="pointer-events-auto mx-auto flex max-w-[92rem] items-center justify-between">
           <Link
             href="#"
-            className="relative h-16 w-52 shrink-0 md:h-20 md:w-64 lg:h-24 lg:w-72"
+            className="relative h-[4.5rem] w-[13rem] shrink-0 md:h-[5.5rem] md:w-[16rem] lg:h-[6.5rem] lg:w-[19rem]"
           >
             <Image
               src={images.logo}
               alt="Coastal & Country Paradise"
               fill
-              sizes="288px"
-              quality={95}
+              sizes="304px"
+              quality={100}
               className={`object-contain object-left transition-all duration-700 ${
                 lightNav
-                  ? "drop-shadow-[0_2px_20px_rgba(0,0,0,0.45)]"
+                  ? "drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]"
                   : "brightness-0"
               }`}
               priority
             />
           </Link>
 
-          <ul className="hidden items-center gap-12 lg:flex xl:gap-16">
+          <ul className="hidden items-center gap-14 lg:flex xl:gap-20">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className={`text-[10px] font-medium uppercase tracking-[0.35em] transition-colors duration-500 ${
+                  className={`text-[9px] font-light uppercase tracking-[0.42em] transition-colors duration-700 ${
                     lightNav
-                      ? "text-white/80 hover:text-white"
-                      : "text-charcoal/70 hover:text-deep-black"
+                      ? "text-white/70 hover:text-white"
+                      : "text-charcoal/55 hover:text-deep-black"
                   }`}
                 >
                   {link.label}
@@ -87,13 +88,13 @@ export function Navigation() {
           <div className="hidden lg:block">
             <a
               href="#book"
-              className={`inline-flex px-8 py-3.5 text-[10px] font-medium uppercase tracking-[0.32em] transition-all duration-500 ${
+              className={`text-[9px] font-light uppercase tracking-[0.38em] transition-colors duration-700 ${
                 lightNav
-                  ? "border border-white/35 text-white hover:border-champagne hover:text-champagne-light"
-                  : "border border-deep-black text-deep-black hover:bg-deep-black hover:text-white"
+                  ? "text-white/60 hover:text-champagne-light"
+                  : "text-charcoal/55 hover:text-deep-black"
               }`}
             >
-              Reserve
+              Concierge
             </a>
           </div>
 
@@ -105,20 +106,20 @@ export function Navigation() {
             className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
           >
             <span
-              className={`block h-px w-6 transition-all duration-300 ${
+              className={`block h-px w-5 transition-all duration-300 ${
                 mobileOpen
                   ? "translate-y-[3.5px] rotate-45 bg-deep-black"
                   : lightNav
-                    ? "bg-white"
+                    ? "bg-white/80"
                     : "bg-deep-black"
               }`}
             />
             <span
-              className={`block h-px w-6 transition-all duration-300 ${
+              className={`block h-px w-5 transition-all duration-300 ${
                 mobileOpen
                   ? "-translate-y-[3.5px] -rotate-45 bg-deep-black"
                   : lightNav
-                    ? "bg-white"
+                    ? "bg-white/80"
                     : "bg-deep-black"
               }`}
             />
@@ -132,19 +133,19 @@ export function Navigation() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.5 }}
             className="fixed inset-0 z-40 bg-ivory lg:hidden"
           >
-            <nav className="flex h-full flex-col items-center justify-center gap-12">
+            <nav className="flex h-full flex-col items-center justify-center gap-14">
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.label}
                   href={link.href}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.06 + i * 0.06, ease: luxuryEase }}
+                  transition={{ delay: 0.05 + i * 0.05, ease: luxuryEase }}
                   onClick={() => setMobileOpen(false)}
-                  className="font-serif text-4xl font-light tracking-tight text-deep-black"
+                  className="font-serif text-3xl font-light tracking-tight text-deep-black"
                 >
                   {link.label}
                 </motion.a>
@@ -152,9 +153,9 @@ export function Navigation() {
               <a
                 href="#book"
                 onClick={() => setMobileOpen(false)}
-                className="mt-8 border border-deep-black px-14 py-4 text-[10px] font-medium uppercase tracking-[0.32em] text-deep-black"
+                className="mt-6 text-[9px] font-light uppercase tracking-[0.38em] text-luxury-muted"
               >
-                Reserve
+                Concierge
               </a>
             </nav>
           </motion.div>

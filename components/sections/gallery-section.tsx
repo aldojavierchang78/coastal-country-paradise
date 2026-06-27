@@ -6,10 +6,18 @@ import { useRef } from "react";
 import { fadeUp, staggerContainer } from "@/lib/motion";
 import { galleryItems } from "@/lib/images";
 
-const aspectClasses = {
-  tall: "aspect-[3/4] md:aspect-[4/5]",
-  wide: "aspect-[16/10] md:aspect-[16/9]",
-  square: "aspect-square",
+const layoutClasses: Record<
+  (typeof galleryItems)[number]["layout"],
+  string
+> = {
+  hero: "col-span-1 md:col-span-12 min-h-[55vh] md:min-h-[75vh]",
+  "tall-left": "col-span-1 md:col-span-5 md:col-start-1 min-h-[50vh] md:min-h-[85vh] md:mt-24",
+  "wide-right":
+    "col-span-1 md:col-span-6 md:col-start-7 min-h-[45vh] md:min-h-[55vh]",
+  portrait:
+    "col-span-1 md:col-span-4 md:col-start-2 min-h-[55vh] md:min-h-[70vh] md:mt-32",
+  landscape:
+    "col-span-1 md:col-span-7 md:col-start-6 min-h-[40vh] md:min-h-[55vh] md:mt-16",
 };
 
 export function GallerySection() {
@@ -19,23 +27,22 @@ export function GallerySection() {
   const isGalleryInView = useInView(galleryRef, { once: true, margin: "-60px" });
 
   return (
-    <section id="gallery" className="bg-warm-white py-32 md:py-48 lg:py-64">
-      <div className="mx-auto max-w-[90rem] px-8 md:px-16 lg:px-24">
+    <section id="gallery" className="bg-ivory py-36 md:py-52 lg:py-72">
+      <div className="mx-auto max-w-[92rem] px-7 sm:px-10 md:px-16 lg:px-24">
         <motion.div
           ref={headerRef}
           custom={0}
           variants={fadeUp}
           initial="hidden"
           animate={isHeaderInView ? "visible" : "hidden"}
-          className="mb-24 md:mb-32"
+          className="mb-28 md:mb-40"
         >
-          <p className="text-[10px] font-medium uppercase tracking-[0.45em] text-champagne-dark">
-            Visual Archive
+          <p className="text-[9px] font-light uppercase tracking-[0.5em] text-champagne-dark">
+            Gallery
           </p>
-          <h2 className="mt-8 font-serif text-[clamp(2.5rem,5vw,4.5rem)] font-light leading-[1.04] tracking-tight text-deep-black">
-            Editorial Gallery
+          <h2 className="mt-10 font-serif text-[clamp(2.5rem,5vw,4.25rem)] font-light leading-[1.04] tracking-tight text-deep-black">
+            A visual journal
           </h2>
-          <div className="mt-10 h-px w-14 bg-champagne" />
         </motion.div>
 
         <motion.div
@@ -43,30 +50,27 @@ export function GallerySection() {
           variants={staggerContainer}
           initial="hidden"
           animate={isGalleryInView ? "visible" : "hidden"}
-          className="columns-1 gap-8 space-y-8 md:columns-2 md:gap-12 md:space-y-12 lg:columns-3 lg:gap-16 lg:space-y-16"
+          className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-x-12 md:gap-y-0 lg:gap-x-16"
         >
           {galleryItems.map((item, i) => (
             <motion.figure
               key={item.src}
               variants={fadeUp}
-              custom={i * 0.05}
-              className={`break-inside-avoid ${i % 3 === 1 ? "md:mt-16 lg:mt-24" : ""} ${i % 3 === 2 ? "lg:mt-8" : ""}`}
+              custom={i * 0.06}
+              className={`relative overflow-hidden ${layoutClasses[item.layout]}`}
             >
-              <div
-                className={`relative overflow-hidden ${aspectClasses[item.aspect]}`}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  quality={92}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="mt-5 text-[10px] font-light uppercase tracking-[0.25em] text-luxury-muted">
-                {item.alt}
-              </figcaption>
+              <Image
+                src={item.src}
+                alt={item.alt}
+                fill
+                quality={95}
+                sizes={
+                  item.layout === "hero"
+                    ? "100vw"
+                    : "(max-width: 768px) 100vw, 50vw"
+                }
+                className="object-cover"
+              />
             </motion.figure>
           ))}
         </motion.div>
