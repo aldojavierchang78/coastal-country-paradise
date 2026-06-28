@@ -7,11 +7,10 @@ import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
 import { IntroSection } from "@/components/sections/intro-section";
 import { EstateSection } from "@/components/sections/estate-section";
-import { FleetSection } from "@/components/sections/fleet-section";
-import { WaterSection } from "@/components/sections/water-section";
-import { LifestyleSection } from "@/components/sections/lifestyle-section";
+import { CollectionSection } from "@/components/sections/collection-section";
+import { ExperiencesSection } from "@/components/sections/experiences-section";
 import { GallerySection } from "@/components/sections/gallery-section";
-import { BookingCtaSection } from "@/components/sections/booking-cta-section";
+import { ReserveSection } from "@/components/sections/reserve-section";
 
 export function HomePage() {
   const [loaded, setLoaded] = useState(false);
@@ -24,11 +23,10 @@ export function HomePage() {
         <HeroSection />
         <IntroSection />
         <EstateSection />
-        <FleetSection />
-        <WaterSection />
-        <LifestyleSection />
+        <CollectionSection />
+        <ExperiencesSection />
         <GallerySection />
-        <BookingCtaSection />
+        <ReserveSection />
       </main>
       <Footer />
     </>

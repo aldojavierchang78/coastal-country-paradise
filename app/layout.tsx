@@ -15,9 +15,9 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Coastal & Country Paradise | Private Estate & Lifestyle Experience",
+  title: "Coastal & Country Paradise | Private Estate & Collection",
   description:
-    "A private estate curated for extraordinary stays, rare drives, still waters and celebrations without ordinary.",
+    "An ultra-luxury private waterfront estate — curated residences, a premium collection and bespoke experiences.",
 };
 
 export default function RootLayout({

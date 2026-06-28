@@ -3,10 +3,9 @@
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 const phrases = [
-  "Stay Extraordinary.",
-  "Drive Something Rare.",
-  "Sail Into Stillness.",
-  "Celebrate Without Ordinary.",
+  "The Estate.",
+  "The Collection.",
+  "Experiences.",
 ];
 
 export function IntroSection() {
@@ -29,8 +28,8 @@ export function IntroSection() {
 
         <ScrollReveal delay={0.45} className="mt-16 md:mt-20">
           <p className="max-w-lg text-[15px] font-light leading-[2.1] text-luxury-muted md:text-base">
-            A private estate where coastal elegance meets country calm —
-            reserved for those who arrive by intention, not invitation.
+            A private waterfront estate — reserved for those who arrive by
+            intention, not invitation.
           </p>
         </ScrollReveal>
       </div>

@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer id="contact" className="border-t border-deep-black/5 bg-ivory">
+    <footer id="contact" className="bg-ivory">
       <div className="mx-auto max-w-[92rem] px-7 py-28 text-center sm:px-10 md:px-16 md:py-36 lg:px-24">
         <p className="font-serif text-2xl font-light tracking-tight text-deep-black md:text-3xl">
           Coastal & Country Paradise

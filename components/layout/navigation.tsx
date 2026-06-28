@@ -7,11 +7,11 @@ import { useEffect, useState } from "react";
 import { luxuryEase } from "@/lib/motion";
 
 const navLinks = [
-  { label: "Estate", href: "#estate" },
-  { label: "Fleet", href: "#fleet" },
-  { label: "Water", href: "#water" },
-  { label: "Lifestyle", href: "#lifestyle" },
+  { label: "The Estate", href: "#estate" },
+  { label: "The Collection", href: "#collection" },
+  { label: "Experiences", href: "#experiences" },
   { label: "Gallery", href: "#gallery" },
+  { label: "Reserve", href: "#reserve" },
 ];
 
 export function Navigation() {
@@ -52,12 +52,12 @@ export function Navigation() {
             <Logo priority />
           </Link>
 
-          <ul className="hidden items-center gap-14 lg:flex xl:gap-20">
+          <ul className="hidden items-center gap-10 lg:flex xl:gap-14">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className={`text-[9px] font-light uppercase tracking-[0.42em] transition-colors duration-700 ${
+                  className={`text-[9px] font-light uppercase tracking-[0.38em] transition-colors duration-700 ${
                     lightNav
                       ? "text-white/70 hover:text-white"
                       : "text-charcoal/55 hover:text-deep-black"
@@ -68,19 +68,6 @@ export function Navigation() {
               </li>
             ))}
           </ul>
-
-          <div className="hidden lg:block">
-            <a
-              href="#book"
-              className={`text-[9px] font-light uppercase tracking-[0.38em] transition-colors duration-700 ${
-                lightNav
-                  ? "text-white/60 hover:text-champagne-light"
-                  : "text-charcoal/55 hover:text-deep-black"
-              }`}
-            >
-              Concierge
-            </a>
-          </div>
 
           <button
             type="button"
@@ -120,7 +107,7 @@ export function Navigation() {
             transition={{ duration: 0.5 }}
             className="fixed inset-0 z-40 bg-ivory lg:hidden"
           >
-            <nav className="flex h-full flex-col items-center justify-center gap-14">
+            <nav className="flex h-full flex-col items-center justify-center gap-12">
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.label}
@@ -134,13 +121,6 @@ export function Navigation() {
                   {link.label}
                 </motion.a>
               ))}
-              <a
-                href="#book"
-                onClick={() => setMobileOpen(false)}
-                className="mt-6 text-[9px] font-light uppercase tracking-[0.38em] text-luxury-muted"
-              >
-                Concierge
-              </a>
             </nav>
           </motion.div>
         )}
