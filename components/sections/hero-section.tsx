@@ -40,7 +40,7 @@ export function HeroSection() {
             priority
             quality={100}
             sizes="100vw"
-            className="object-cover object-[center_42%] contrast-[1.12] saturate-[1.06] brightness-[1.02]"
+            className="object-cover object-[center_42%] contrast-[1.1] saturate-[1.05] brightness-[0.97]"
           />
         </motion.div>
       </div>
@@ -50,12 +50,12 @@ export function HeroSection() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(rgba(0,0,0,.26), rgba(0,0,0,.36))",
+            "linear-gradient(rgba(0,0,0,.28), rgba(0,0,0,.38))",
         }}
         aria-hidden
       />
 
-      <div className="relative z-10 flex h-full flex-col justify-end px-8 pb-28 pt-44 sm:px-11 sm:pb-32 md:px-16 md:pb-36 lg:px-24 lg:pb-[12.5rem]">
+      <div className="relative z-10 flex h-full flex-col justify-end px-8 pb-28 pt-44 sm:px-11 sm:pb-32 md:px-16 md:pb-36 lg:px-24 lg:pb-40">
         <div className="mx-auto w-full max-w-[92rem]">
           <motion.h1
             custom={2.5}
