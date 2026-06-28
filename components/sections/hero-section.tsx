@@ -39,6 +39,7 @@ export function HeroSection() {
             fill
             priority
             quality={100}
+            unoptimized
             sizes="100vw"
             className="object-cover object-center contrast-[1.02] saturate-[1.03]"
           />
@@ -78,7 +79,7 @@ export function HeroSection() {
         </div>
       )}
 
-      <div className="relative z-10 flex h-full flex-col justify-end px-7 pb-20 pt-36 sm:px-10 sm:pb-24 md:px-16 md:pb-28 lg:px-24 lg:pb-32">
+      <div className="relative z-10 flex h-full flex-col justify-end px-7 pb-[50px] pt-36 sm:px-10 sm:pb-[66px] md:px-16 md:pb-[82px] lg:px-24 lg:pb-[98px]">
         <div className="mx-auto w-full max-w-[92rem]">
           <motion.p
             custom={2.4}
@@ -95,11 +96,12 @@ export function HeroSection() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            className="mt-10 max-w-[18ch] font-serif text-[clamp(2.5rem,7.5vw,6.5rem)] font-light leading-[0.96] tracking-[-0.01em] text-white sm:max-w-none sm:mt-12"
+            className="mt-10 max-w-[18ch] font-serif font-light leading-[0.96] tracking-[-0.01em] text-white sm:max-w-none sm:mt-12"
           >
-            Where Luxury
-            <br />
-            <span className="italic text-champagne-light/90">
+            <span className="block text-[clamp(2.375rem,7.125vw,6.175rem)]">
+              Where Luxury
+            </span>
+            <span className="block text-[clamp(2.5rem,7.5vw,6.5rem)] italic text-champagne-light/90">
               Becomes Personal.
             </span>
           </motion.h1>
