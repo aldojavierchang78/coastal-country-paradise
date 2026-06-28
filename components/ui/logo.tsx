@@ -10,9 +10,9 @@ type LogoProps = {
 };
 
 export function Logo({
-  className = "h-auto w-[78px] object-contain md:w-[100px]",
+  className = "h-auto w-[87px] object-contain md:w-[112px]",
   priority = false,
-  sizes = "(max-width: 768px) 78px, 100px",
+  sizes = "(max-width: 768px) 87px, 112px",
 }: LogoProps) {
   return (
     // eslint-disable-next-line @next/next/no-img-element

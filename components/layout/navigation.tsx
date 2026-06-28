@@ -40,16 +40,13 @@ export function Navigation() {
 
   const lightNav = onHero && !scrolled && !mobileOpen;
 
-  const linkClass = (label: string) =>
-    `font-inter text-[9px] font-light uppercase tracking-[0.48em] transition-colors duration-700 ${
-      label === "Concierge"
-        ? lightNav
-          ? "text-white/55 hover:text-champagne-light"
-          : "text-charcoal/50 hover:text-deep-black"
-        : lightNav
-          ? "text-white/65 hover:text-white"
-          : "text-charcoal/55 hover:text-deep-black"
-    }`;
+  const linkClass = (label: string) => {
+    const isConcierge = label === "Concierge";
+    if (lightNav) {
+      return `nav-link ${isConcierge ? "nav-link--concierge-light" : "nav-link--light"}`;
+    }
+    return `nav-link ${isConcierge ? "nav-link--concierge-dark" : "nav-link--dark"}`;
+  };
 
   return (
     <>
@@ -57,23 +54,24 @@ export function Navigation() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.4, delay: 2.2, ease: luxuryEase }}
-        className="pointer-events-none fixed inset-x-0 top-0 z-50 px-6 pt-6 md:px-14 md:pt-8 lg:px-20"
+        className="pointer-events-none fixed inset-x-0 top-0 z-50 px-8 pt-7 md:px-16 md:pt-8 lg:px-24"
       >
-        <nav className="pointer-events-auto mx-auto grid max-w-[92rem] grid-cols-[1fr_auto] items-start gap-x-6 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-x-10">
-          <div className="flex flex-col items-start gap-2 md:gap-2.5">
+        <nav className="pointer-events-auto mx-auto grid max-w-[92rem] grid-cols-[1fr_auto] items-start gap-x-6 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-x-12">
+          <div className="flex flex-col items-start gap-3.5 md:gap-4">
             <Link href="#" className="inline-flex shrink-0">
               <Logo priority />
             </Link>
             <p
-              className={`font-inter text-[7px] font-light uppercase tracking-[0.58em] transition-colors duration-700 md:text-[8px] md:tracking-[0.62em] ${
-                lightNav ? "text-white/40" : "text-luxury-muted"
+              className={`font-inter text-[7px] font-light uppercase transition-colors duration-700 md:text-[8px] ${
+                lightNav ? "text-white/38" : "text-luxury-muted"
               }`}
+              style={{ letterSpacing: "0.45em" }}
             >
               Coastal & Country Paradise
             </p>
           </div>
 
-          <ul className="hidden items-center gap-10 pt-3 lg:flex xl:gap-14 xl:pt-3.5">
+          <ul className="hidden items-center gap-12 pt-3.5 lg:flex xl:gap-[4.5rem] xl:pt-4">
             {navLinks.map((link) => (
               <li key={link.label}>
                 <a href={link.href} className={linkClass(link.label)}>
