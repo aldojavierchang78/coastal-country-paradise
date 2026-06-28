@@ -12,7 +12,6 @@ const navLinks = [
   { label: "Water", href: "#water" },
   { label: "Lifestyle", href: "#lifestyle" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Concierge", href: "#book" },
 ];
 
 export function Navigation() {
@@ -40,75 +39,75 @@ export function Navigation() {
 
   const lightNav = onHero && !scrolled && !mobileOpen;
 
-  const linkClass = (label: string) => {
-    const isConcierge = label === "Concierge";
-    if (lightNav) {
-      return `nav-link ${isConcierge ? "nav-link--concierge-light" : "nav-link--light"}`;
-    }
-    return `nav-link ${isConcierge ? "nav-link--concierge-dark" : "nav-link--dark"}`;
-  };
-
   return (
     <>
       <motion.header
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.4, delay: 2.2, ease: luxuryEase }}
-        className="pointer-events-none fixed inset-x-0 top-0 z-50 px-8 pt-7 md:px-16 md:pt-8 lg:px-24"
+        className="pointer-events-none fixed inset-x-0 top-0 z-50 px-6 pt-7 md:px-14 md:pt-9 lg:px-20"
       >
-        <nav className="pointer-events-auto mx-auto grid max-w-[92rem] grid-cols-[1fr_auto] items-start gap-x-6 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-x-12">
-          <div className="flex flex-col items-start gap-3.5 md:gap-4">
-            <Link href="#" className="inline-flex shrink-0">
-              <Logo priority />
-            </Link>
-            <p
-              className={`font-inter text-[7px] font-light uppercase transition-colors duration-700 md:text-[8px] ${
-                lightNav ? "text-white/38" : "text-luxury-muted"
-              }`}
-              style={{ letterSpacing: "0.45em" }}
-            >
-              Coastal & Country Paradise
-            </p>
-          </div>
+        <nav className="pointer-events-auto mx-auto flex max-w-[92rem] items-center justify-between">
+          <Link href="#" className="inline-flex shrink-0">
+            <Logo priority />
+          </Link>
 
-          <ul className="hidden items-center gap-12 pt-3.5 lg:flex xl:gap-[4.5rem] xl:pt-4">
+          <ul className="hidden items-center gap-14 lg:flex xl:gap-20">
             {navLinks.map((link) => (
               <li key={link.label}>
-                <a href={link.href} className={linkClass(link.label)}>
+                <a
+                  href={link.href}
+                  className={`text-[9px] font-light uppercase tracking-[0.42em] transition-colors duration-700 ${
+                    lightNav
+                      ? "text-white/70 hover:text-white"
+                      : "text-charcoal/55 hover:text-deep-black"
+                  }`}
+                >
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
 
-          <div className="flex justify-end lg:col-start-3">
-            <button
-              type="button"
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-              onClick={() => setMobileOpen((o) => !o)}
-              className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+          <div className="hidden lg:block">
+            <a
+              href="#book"
+              className={`text-[9px] font-light uppercase tracking-[0.38em] transition-colors duration-700 ${
+                lightNav
+                  ? "text-white/60 hover:text-champagne-light"
+                  : "text-charcoal/55 hover:text-deep-black"
+              }`}
             >
-              <span
-                className={`block h-px w-5 transition-all duration-300 ${
-                  mobileOpen
-                    ? "translate-y-[3.5px] rotate-45 bg-deep-black"
-                    : lightNav
-                      ? "bg-white/80"
-                      : "bg-deep-black"
-                }`}
-              />
-              <span
-                className={`block h-px w-5 transition-all duration-300 ${
-                  mobileOpen
-                    ? "-translate-y-[3.5px] -rotate-45 bg-deep-black"
-                    : lightNav
-                      ? "bg-white/80"
-                      : "bg-deep-black"
-                }`}
-              />
-            </button>
+              Concierge
+            </a>
           </div>
+
+          <button
+            type="button"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((o) => !o)}
+            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+          >
+            <span
+              className={`block h-px w-5 transition-all duration-300 ${
+                mobileOpen
+                  ? "translate-y-[3.5px] rotate-45 bg-deep-black"
+                  : lightNav
+                    ? "bg-white/80"
+                    : "bg-deep-black"
+              }`}
+            />
+            <span
+              className={`block h-px w-5 transition-all duration-300 ${
+                mobileOpen
+                  ? "-translate-y-[3.5px] -rotate-45 bg-deep-black"
+                  : lightNav
+                    ? "bg-white/80"
+                    : "bg-deep-black"
+              }`}
+            />
+          </button>
         </nav>
       </motion.header>
 
@@ -135,6 +134,13 @@ export function Navigation() {
                   {link.label}
                 </motion.a>
               ))}
+              <a
+                href="#book"
+                onClick={() => setMobileOpen(false)}
+                className="mt-6 text-[9px] font-light uppercase tracking-[0.38em] text-luxury-muted"
+              >
+                Concierge
+              </a>
             </nav>
           </motion.div>
         )}

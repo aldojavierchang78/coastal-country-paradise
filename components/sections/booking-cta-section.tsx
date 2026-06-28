@@ -62,7 +62,7 @@ export function BookingCtaSection() {
           className="mt-20"
         >
           <a
-            href="mailto:coastalandcountryparadise@gmail.com?subject=Private%20Experience%20Inquiry"
+            href="mailto:aldojavier.chang@gmail.com?subject=Private%20Experience%20Inquiry"
             className="inline-flex items-center justify-center border border-champagne/80 px-14 py-4 text-[9px] font-light uppercase tracking-[0.36em] text-champagne-light transition-all duration-700 hover:bg-champagne hover:text-deep-black"
           >
             Request Availability
