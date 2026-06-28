@@ -48,7 +48,7 @@ export function Navigation() {
         className="pointer-events-none fixed inset-x-0 top-0 z-50 px-6 pt-7 md:px-14 md:pt-9 lg:px-20"
       >
         <nav className="pointer-events-auto mx-auto flex max-w-[92rem] items-center justify-between">
-          <Link href="#" className="inline-flex shrink-0 bg-transparent">
+          <Link href="#" className="inline-flex shrink-0">
             <Logo priority />
           </Link>
 

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { images } from "@/lib/images";
 
 export const LOGO_WIDTH = 1224;
@@ -11,20 +10,22 @@ type LogoProps = {
 };
 
 export function Logo({
-  className = "h-auto w-[78px] bg-transparent object-contain md:w-[100px]",
+  className = "h-auto w-[78px] object-contain md:w-[100px]",
   priority = false,
   sizes = "(max-width: 768px) 78px, 100px",
 }: LogoProps) {
   return (
-    <Image
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
       src={images.logo}
       alt="Coastal & Country Paradise"
       width={LOGO_WIDTH}
       height={LOGO_HEIGHT}
       sizes={sizes}
-      priority={priority}
-      unoptimized
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
       className={className}
+      style={{ background: "transparent", mixBlendMode: "normal" }}
     />
   );
 }

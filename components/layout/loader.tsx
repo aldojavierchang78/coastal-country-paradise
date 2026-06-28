@@ -35,7 +35,7 @@ export function LuxuryLoader({ onComplete }: LuxuryLoaderProps) {
             <Logo
               priority
               sizes="100px"
-              className="h-auto w-[100px] bg-transparent object-contain"
+              className="h-auto w-[100px] object-contain"
             />
           </motion.div>
         </motion.div>
